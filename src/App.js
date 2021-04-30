@@ -26,14 +26,14 @@ class App extends Component {
     };
     if (snapshot) {
       window.scrollTo({
-        top: document.documentElement.scrollHeight,
+        top: document.documentElement.offsetHeight,
         behavior: 'smooth',
       });
     }
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
-    if (prevState.images.length < this.state.images.length) {
+    if (prevState.images.length > 20) {
       return true;
     }
     return false;
